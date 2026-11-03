@@ -1,0 +1,7 @@
+# 核心依赖（静态图 + 物理计算）
+numpy>=1.24
+matplotlib>=3.7
+
+# 交互界面（可选）：只有 app.py 需要
+# 没装也能用 demo_static.py 出图
+streamlit>=1.30

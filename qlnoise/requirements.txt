@@ -1,0 +1,9 @@
+# qlnoise 的依赖
+#
+#   pip install -r qlnoise/requirements.txt
+#
+# 只需要这两个，没有别的。不需要 streamlit（那是 spdc_demo 交互版的事）。
+# Python >= 3.9。
+
+numpy>=1.24
+matplotlib>=3.7
