@@ -1,3 +1,7 @@
 __pycache__/
 *.py[cod]
 .DS_Store
+
+# 运行生成的结果，不进仓库
+spdc_demo/figs/
+qlnoise/figs/

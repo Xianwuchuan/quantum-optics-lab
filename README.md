@@ -18,7 +18,7 @@ python spdc_demo/demo_static.py
 # 交互版：五场景 Streamlit 界面
 (cd spdc_demo && streamlit run app.py)
 
-# 噪声分析：报告 + 4 张图写到 qlnoise/report/
+# 噪声分析：4 张图写到 qlnoise/figs/，关键数字打印在终端
 python qlnoise/analyze.py
 ```
 
@@ -38,13 +38,13 @@ python qlnoise/analyze.py
 
 **qlnoise** —— 已验证：
 - 自检偏差 HOM 1.67e-16、MZI 2.22e-16（解析式对得上，演化层可信）
-- 报告 9 节 + 4 张图生成正常
+- 4 张图生成正常，终端正确打印自检、HOM 参考值与误差预算表
 - 误差预算的两列排序不同：保真度侧第一是模式可见度 V，计数率侧第一是透过率 η
 
 **已知问题**：
-- `qlnoise` 报告 §6 的两级网络在 45° 相位下扫 V，曲线几乎是水平线
+- `qlnoise` 的两级网络图在 45° 相位下扫 V，曲线几乎是水平线
   （V = 0.90 时保真度 0.9997），和标题「噪声会累积」不符。演示参数待重做。
-- `qlnoise` §5 表的「偏离理想值」把相位偏置算进了参考相位，这一列实际只反映
+- `qlnoise` 的 MZI `deviation` 字段把相位偏置算进了参考相位，实际只反映
   损耗和分束比失衡。
 - `spdc_demo/app.py` 用的 `use_container_width` 已被 Streamlit 标记弃用
   （2025-12-31 后移除，替代为 `width="stretch"`）。
@@ -65,8 +65,9 @@ Quantum/
     ├── circuits.py      HOM / MZI / 两级网络
     ├── metrics.py       分布重叠、TVD、后选择、符合概率增量
     ├── analysis.py      参数扫描 + 误差预算
-    ├── analyze.py       报告生成器（CLI）
-    └── README.md        噪声模型、报告结构、局限
+    ├── analyze.py       命令行入口：出图 + 终端表格
+    ├── figs/            生成结果（4 张图）
+    └── README.md        噪声模型、输出说明、局限
 ```
 
 ## 建议的阅读顺序
